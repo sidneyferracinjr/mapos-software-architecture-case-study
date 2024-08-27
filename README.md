@@ -1,142 +1,77 @@
+<p style="font-size: 1.3rem;">Projeto_2   2348160: Sidney Alexandre Ferracin Junior, 2348012: João Pedro Vaciloto Montilha, 2383969: Marcus Vinícius Molina Freitas</p>
 
-![MapOS](https://raw.githubusercontent.com/RamonSilva20/mapos/master/assets/img/logo.png)
+<h2>Projeto 2 - Análise e Documentação da Arquitetura em Camadas do Sistema Map-OS</h2>
 
-![version](https://img.shields.io/badge/version-4.47.0-blue.svg?longCache=true&style=flat-square)
-![license](https://img.shields.io/badge/license-MIT-green.svg?longCache=true&style=flat-square)
-![theme](https://img.shields.io/badge/theme-Matrix--Admin-lightgrey.svg?longCache=true&style=flat-square)
-![issues](https://img.shields.io/github/issues/RamonSilva20/mapos.svg?longCache=true&style=flat-square)
-![contributors](https://img.shields.io/github/contributors/RamonSilva20/mapos.svg?longCache=true&style=flat-square)
+<br>
 
-### Contato: contato@mapos.com.br
-### [Feedback](https://github.com/RamonSilva20/mapos/discussions) - Vote ou sugira melhorias
+<p style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/RamonSilva20/mapos/master/assets/img/logo.png" alt="MapOS Logo" style="width:400px;">
+</p>
 
-![Map-OS](https://raw.githubusercontent.com/RamonSilva20/mapos/master/docs/dashboard.png)
+<br>
 
-### [Instalação](Instalacao_xampp_windows.md)
+<h3>Estrutura da Documentação</h3>
 
-1. Faça o download dos arquivos.
-2. Extraia o pacote e copie para seu webserver.
-3. Rode o comando `composer install --no-dev` a partir da raiz do projeto.
-4. Acesse sua URL e inicie a instalação, é bem simples, basta preencher as informações no assistente de instalação **MAPOS**.
-5. Configure o email de envio em Configurações > Sistema > E-mail .
-6. Configurar cron jobs para envio de e-mail:
-    ##### Enviar emails pendentes a cada 2 minutos.
-    - */2 * * * * php /var/www/index.php email/process
-    ##### Enviar emails com falha a cada 5 minutos.
-    - */5 * * * * php /var/www/index.php email/retry
+- [Introdução](#Introdução)
+- [Descrição do Sistema](#descricao-do-sistema)
+- [Arquitetura do Sistema](#arquitetura-do-sistema)
+- [Processos Principais](#processos-principais)
+- [Proposta de Melhoria](#proposta-de-melhoria)
+- [Conclusão](#conclusao)
+- [Referências](#referencias)
 
-    ##### Obs: O path até o index.php (/var/www/) deve ser configurado conforme o seu ambiente
+<h3>Introdução</h3>
+Devido à sua complexidade e abrangência, o Map-OS foi selecionado como objeto de estudo para a documentação detalhada de sua arquitetura, como parte de uma atividade avaliativa da disciplina de Arquitetura de Software na UTFPR de Cornélio Procópio. Esta documentação tem como objetivo explorar e detalhar os principais processos e recursos presentes em cada camada do sistema, fornecendo uma visão clara e precisa de como a aplicação é estruturada e como seus componentes interagem para atender às necessidades dos usuários.</p>
 
+<h3>Descrição do Sistema</h3>
+<p>O Map-OS (Manutenção e Automação de Processos de Ordens de Serviço) é um projeto de código aberto para gestão de ordens de serviço, com uma arquitetura robusta e modular e com uma boa base de usuários ativos e desenvolvedores, se tornando uma ótima escolha de software alvo para documentação de sua arquitetura.</p>
+<p>O objetivo é ser um sistema de assistência técnica, facilitando o gerenciamento da empresa do usuário, o possibilitando realizar sua gestão de ordens e serviços, a gestão de clientes e estoques, geração de relatório sobre as finanças, entre outras funcionalidades. Tendo sido desenvolvido em PHP, ele é um programa de código aberto disponível no GitHub e dividido em uma arquitetura de camadas, o que permite que cada componente do sistema comunique-se com outros de forma clara, faciilitando também sua manutenção. Sua utilização no mercado se da principalmente por pequenas e médias empresas que focam em serviços de atendimento ao cliente.</p>
 
-### Instalação (Docker)
+<h2>Seção A</h2>
 
-1. Faça o download dos arquivos.
-2. Instale o [Docker](https://docs.docker.com/install/) e o [Docker Compose](https://docs.docker.com/compose/install/).
-3. Entre na pasta `docker` no seu terminal e rode o comando `docker-compose up --force-recreate`.
-4. Acesse a URL `http://localhost:8000/` no navegador e inicie a instalação.
-5. Na etapa de configuração use as seguintes configurações:
-```
-1. Por favor, insira as informações da sua conexão de banco de dados.
-Host: mysql
-Usuário: mapos
-Senha: mapos
-Banco de Dados: mapos
+<h3>Arquitetura do Sistema</h3>
+<p>A arquitetura do MapOS é organizada nas seguintes camadas: apresentação, ligação de negócio, persistência e infraestrutura.</p>
+<ul>
+  <li><strong>Camada de Apresentação:</strong> Esta camada é responsável pela interface gráfica do usuário usuário, utilizando o framework <em>Matrix Admin</em>, que oferece componentes pré-configurados, facilitando o desenvolvimento do frontend e tornando sua aplicação atraente e funcional. A interação com os usuários é facilitada também por componentes como Bootstrap, AJAX e jQuery, ferramentas famosas que possibilitam aumentar a funcionalidade e responsividade da interface.</li>
+  
+  <li><strong>Camada de Lógica de Negócio:</strong> A lógica de negócio do Map-OS é o componente central do software, sendo implementada através do framework <em>CodeIgniter</em>. Esta camada se responsabiliza por gerenciar as operações das regras de negócio, como a criação e gerenciamento de ordens de serviço, controle de clientes. Isso permite que o sistema faça a criação e atualização das ordens de serviço, cadastro e gerenciamento dos clientes e os notifica, tanto sobre o status do serviço como marketing e propaganda. Além disso, essa camada também é responsável por realizar a integração com APIs externas, sendo utilizado principalmente para integrar APIs de gateways de pagamento.</li>
+  
+  <li><strong>Camada de Persistência:</strong> A camada de persistência é responsável por recuperar e gerenciar o armazenamento de dados do sistema, utilizando o banco de dados MySQL. Entre esses dados estão presentes informações de clientes, ordens de serviço e configurações do sistema. Devido a sensibilidade desses dados, tanto para os clientes como para a empresa, Também está presente nessa camada medidas de segurança como controle de acesso e criptografia dos dados.  As operações de CRUD (Create Read Update Delete) são realizadas nesta camada, que são otimizados no MySQL através do uso de índices.</li>
+  
+  <li><strong>Camada de Infraestrutura:</strong> A infraestrutura do Map-OS é projetada visando oferecer um suporte robusto e flexível, possibilitando ser hospedado por servidores web famosos, como Apache e Nginx. Para simplificar a instalação e configuração inicial, foi feito o uso do <em>Composer</em>, que gerencia as dependências para PHP, tais como as bibliotecas e pacotes necessários para seu funcionamento, e opcionalmente <em>Docker</em>, que se utiliza de contêineres para encapsular o sistema, mantendo sua consistência independentemente das configurações do ambiente, ambos garantindo um ambiente de execução estável e replicável.</li>
+</ul>
 
-2. Por favor, insira as informações para sua conta de administrador.
-Configure do jeito que quiser.
+<h3>Processos Principais</h3>
+<p>A análise dos processos principais do Map-OS abrange:</p>
+<ul>
+  <li><strong>Gestão de Ordens de Serviço:</strong> Fluxo que abrange desde a criação de uma nova ordem de serviço até seu fechamento, incluindo atribuição de técnicos e notificação de clientes.</li>
+  <li><strong>Autenticação e Controle de Acesso:</strong> Sistema de autenticação de usuários com diferentes níveis de permissão, garantindo a segurança e integridade das operações.</li>
+  <li><strong>Integração com APIs:</strong> Descrição das integrações disponíveis com APIs externas para expandir as funcionalidades do sistema, como gateways de pagamento e serviços de email.</li>
+</ul>
 
-3. Por favor, insira a URL.
-URL: http://localhost:8000/
-```
-6. Configure o email de envio em Configurações > Sistema > E-mail .
+<h2>Seção B</h2>
 
-    ##### Obs: Cuide da pasta `docker/data`, onde é pasta que o mysql do docker salva os arquivos. Se for deletada você perderá seu banco de dados.
-    ##### Obs2: O PhpMyAdmin também e instalado e pode ser acessado em `http://localhost:8080/`.
+<h3>Proposta de Melhoria</h3>
+<p>Esta seção propõe estratégias para aumentar a escalabilidade e melhorar a arquitetura do Map-OS:</p>
 
-### Instalação Automatizada
-Tutorial Instalação: [https://youtu.be/NgXzzBB_2bM?si=FS_R2xq_W0Jnfn33](https://www.youtube.com/watch?v=aZE-LW_YOE4)
-#### Windows 10/11
-1. Execute o Prompt de Comando ou PowerShell como Administrador;
-2. Execute o comando: `PowerShell -command "& { iwr https://raw.githubusercontent.com/RamonSilva20/mapos/master/install.bat -OutFile MapOS_Install.bat }; .\MapOS_Install.bat"`
-3. Siga as instrunções na tela.
+<h4>Proposta de Escalabilidade</h4>
+<ul>
+  <li><strong>Escalabilidade Vertical:</strong> Recomenda-se a melhoria do hardware do servidor, incluindo aumento de memória e poder de processamento para suportar maiores volumes de dados e usuários.</li>
+  <li><strong>Escalabilidade Horizontal:</strong> Implementação de balanceamento de carga e configuração de clusters de servidores para distribuir as requisições e aumentar a disponibilidade do sistema.</li>
+</ul>
 
-#### Linux (Ubuntu/Debian)
-1. Abra o Terminal ou acesse seu servidor via SSH;
-2. Eleve o privilégio aplicando `sudo su` (Recomendado);
-3. Execute o comando: `curl -o MapOS_Install.sh -L https://raw.githubusercontent.com/RamonSilva20/mapos/master/install.sh && chmod +x MapOS_Install.sh && ./MapOS_Install.sh`
-4. Siga as instruções na tela.
+<h4>Proposta de Refatoração</h4>
+<ul>
+  <li><strong>Modularização de Funcionalidades:</strong> Refatorar o código para melhorar a separação de responsabilidades, facilitando a manutenção e adição de novas funcionalidades.</li>
+  <li><strong>Otimização do Banco de Dados:</strong> Propor melhorias nas consultas SQL e na estrutura do banco de dados para aumentar a eficiência no processamento de grandes volumes de dados.</li>
+</ul>
 
-### Atualização
+<h4>Conclusão</h4>
+<p>Na conclusão, será feito um resumo das análises realizadas e das propostas de melhoria, destacando como essas sugestões podem impactar positivamente a performance e a manutenção do sistema Map-OS.</p>
 
-1. Faça o backup dos arquivos e do banco de dados:
-2. Logado como administrador vá em `configurações > backup`.
-3. Dentro da pasta `Assets` copie as pastas `anexos`, `arquivos`, `uploads`, `userimage` e qualquer personalização feita dentro da pasta `img`.
-4. Dentro da pasta `application` copie o arquivo `.env`.;
-5. Substitua os arquivos pelos da nova versão.
-6. Rode o comando `composer install --no-dev` a partir da raiz do projeto.
-7. Restaure os backups para seus locais devidos.
-8. Logue no sistema como administrador e navegue até Configurações -> Sistema e clique no botão `Atualizar Banco de Dados` para atualizar seu banco de dados.
-    Obs.: Também é possível atualizar o banco de dados via terminal rodando o comando `php index.php tools migrate` a partir da raiz do projeto;
-9. Pronto, sua atualização está concluída;
-
-### Atualização (Docker)
-
-1. Pare o docker de rodar;
-2. Faça o backup dos arquivos e do banco de dados:
-3. Logado como administrador vá em `configurações > backup`.
-4. Dentro da pasta `Assets` copie as pastas `anexos`, `arquivos`, `uploads`, `userimage` e qualquer personalização feita dentro da pasta `img`.
-5. Dentro da pasta `application` copie o arquivo `.env`.
-6. Substitua os arquivos pelos da nova versão;
-7. Entre na pasta `docker` no seu terminal e rode o comando `docker-compose up --force-recreate`;
-8. Logue no sistema como administrador e navegue até Configurações -> Sistema e clique no botão `Atualizar Banco de Dados` para atualizar seu banco de dados.
-    Obs.: Também é possível atualizar o banco de dados via terminal rodando o comando `php index.php tools migrate` a partir da raiz do projeto;
-9. Restaure os backups para seus locais devidos;
-10. Pronto, sua atualização está concluída;
-
-### Atualização via sistema
-
-1. Primeiro é necessário atualizar manualmente o sistema para a versão v4.4.0;
-2. Quando estiver nessa versão é possível atualizar o sistema clicando no botão "Atualizar Mapos" em Sistema >> Configurações;
-3. Serão baixados e atualizados todos os arquivos exceto: `config.php`, `database.php` e `email.php`;
-
-### Comandos de terminal
-
-Para listar todos os comandos de terminal disponíveis, basta executar o comando `php index.php tools` a partir da raiz do projeto, após feita todo o processo de instalação.
-
-### Hospedagem Parceira
-Em parceria com o Projeto Map-OS as empresas SysmaTech e Gotek se uniram como SysGo para oferecer hospedagem de qualidade e suporte personalizado para usuários dos Map-OS com custo justo e confiabilidade.
-
-Solicite sua hospedagem agora [Clique Aqui!](https://sysgo.com.br/mapos-github)
-
-<p><img src="https://sysgo.com.br/img-externo/mapos-github.jpg" alt="SysGO - MAP-OS Cloud Hosting" style="width:50%;"></p>
-
-### Frameworks/Bibliotecas
-* [bcit-ci/CodeIgniter](https://github.com/bcit-ci/CodeIgniter)
-* [twbs/bootstrap](https://github.com/twbs/bootstrap)
-* [jquery/jquery](https://github.com/jquery/jquery)
-* [jquery/jquery-ui](https://github.com/jquery/jquery-ui)
-* [mpdf/mpdf](https://github.com/mpdf/mpdf)
-* [Matrix Admin](http://wrappixel.com/demos/free-admin-templates/matrix-admin/index.html)
-* [filp/whoops](https://github.com/filp/whoops)
-
-### Requerimentos
-* PHP = 8.2
-* MySQL
-* Composer
-
-### Doações
-Gosta do mapos e gostaria de contribuir com seu desenvolvimento?
-
-Doações podem ser realizadas nos links:
-* [catarse/mapos](https://www.catarse.me/mapos) - Mensal
-* [kofi/mapos](https://ko-fi.com/mapos) - Exporádica
-
-### Estrelas
-[![Estrelas](https://api.star-history.com/svg?repos=RamonSilva20/mapos&type=Date)](https://star-history.com/#RamonSilva20/mapos&Date)
-
-### Contribuidores
-[![Contribuidores](https://contrib.rocks/image?repo=RamonSilva20/mapos)](https://github.com/RamonSilva20/mapos/graphs/contributors)
-
-## Autor
-| [<img src="https://avatars.githubusercontent.com/RamonSilva20?s=115"><br><sub>Ramon Silva</sub>](https://github.com/RamonSilva20) |
-| :---: |
+<h4>Referências</h4>
+<ul>
+  <li><a href="https://github.com/RamonSilva20/mapos">Repositório Oficial do Map-OS</a></li>
+  <li><a href="https://codeigniter.com/userguide3/">Documentação do CodeIgniter</a></li>
+  <li><a href="https://dev.mysql.com/doc/">Documentação do MySQL</a></li>
+</ul>
