@@ -41,6 +41,16 @@ Devido à sua complexidade e abrangência, o Map-OS foi selecionado como objeto 
   <li><strong>Camada de Infraestrutura:</strong> A infraestrutura do Map-OS é projetada visando oferecer um suporte robusto e flexível, possibilitando ser hospedado por servidores web famosos, como Apache e Nginx. Para simplificar a instalação e configuração inicial, foi feito o uso do <em>Composer</em>, que gerencia as dependências para PHP, tais como as bibliotecas e pacotes necessários para seu funcionamento, e opcionalmente <em>Docker</em>, que se utiliza de contêineres para encapsular o sistema, mantendo sua consistência independentemente das configurações do ambiente, ambos garantindo um ambiente de execução estável e replicável.</li>
 </ul>
 
+<h3>Diagrama de Classes</h3>
+
+<h2>Models</h2>
+
+![alt text](image-1.png)
+
+<h2>Controllers</h2>
+
+![alt text](image-2.png)
+
 <h3>Processos Principais</h3>
 <p>A análise dos processos principais do Map-OS abrange:</p>
 <ul>
