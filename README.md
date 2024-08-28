@@ -17,14 +17,14 @@
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
 - [Processos Principais](#processos-principais)
 - [Proposta de Melhoria](#proposta-de-melhoria)
-- [Conclusão](#conclusao)
-- [Referências](#referencias)
+- [Conclusão](#conclusão)
+- [Referências](#referências)
 
 <h3>Introdução</h3>
 Devido à sua complexidade e abrangência, o Map-OS foi selecionado como objeto de estudo para a documentação detalhada de sua arquitetura, como parte de uma atividade avaliativa da disciplina de Arquitetura de Software na UTFPR de Cornélio Procópio. Esta documentação tem como objetivo explorar e detalhar os principais processos e recursos presentes em cada camada do sistema, fornecendo uma visão clara e precisa de como a aplicação é estruturada e como seus componentes interagem para atender às necessidades dos usuários.</p>
 
 <h3>Descrição do Sistema</h3>
-<p>O Map-OS (Manutenção e Automação de Processos de Ordens de Serviço) é um projeto de código aberto para gestão de ordens de serviço, com uma arquitetura robusta e modular e com uma boa base de usuários ativos e desenvolvedores, se tornando uma ótima escolha de software alvo para documentação de sua arquitetura.</p>
+<p>O Map-OS (Manutenção e Automação de Processos de Ordens de Serviço) é um sistema de gestão de ordens de serviço, com uma arquitetura robusta e modular e com uma boa base de usuários ativos e desenvolvedores, se tornando uma ótima escolha de software alvo para documentação de sua arquitetura.</p>
 <p>O objetivo é ser um sistema de assistência técnica, facilitando o gerenciamento da empresa do usuário, o possibilitando realizar sua gestão de ordens e serviços, a gestão de clientes e estoques, geração de relatório sobre as finanças, entre outras funcionalidades. Tendo sido desenvolvido em PHP, ele é um programa de código aberto disponível no GitHub e dividido em uma arquitetura de camadas, o que permite que cada componente do sistema comunique-se com outros de forma clara, faciilitando também sua manutenção. Sua utilização no mercado se da principalmente por pequenas e médias empresas que focam em serviços de atendimento ao cliente.</p>
 
 <h2>Seção A</h2>
@@ -52,11 +52,11 @@ Devido à sua complexidade e abrangência, o Map-OS foi selecionado como objeto 
 ![alt text](image-2.png)
 
 <h3>Processos Principais</h3>
-<p>A análise dos processos principais do Map-OS abrange:</p>
+<p>A análise dos processos principais do Map-OS foca nos fluxos de trabalho presentes no software, projetados para otimizar as operações comerciais e melhorar a experiência do usuário. São eles:</p>
 <ul>
-  <li><strong>Gestão de Ordens de Serviço:</strong> Fluxo que abrange desde a criação de uma nova ordem de serviço até seu fechamento, incluindo atribuição de técnicos e notificação de clientes.</li>
-  <li><strong>Autenticação e Controle de Acesso:</strong> Sistema de autenticação de usuários com diferentes níveis de permissão, garantindo a segurança e integridade das operações.</li>
-  <li><strong>Integração com APIs:</strong> Descrição das integrações disponíveis com APIs externas para expandir as funcionalidades do sistema, como gateways de pagamento e serviços de email.</li>
+  <li><strong>Gestão de Ordens de Serviço:</strong> Fluxo que abrange desde a criação de uma nova ordem de serviço até seu fechamento, incluindo atribuição de técnicos e atualização de status. Durante o processo também há a comunicação com o cliente, o notificando sobre seu serviço e garantindo transparência por parte da empresa. Após sua realização, o Map-OS coleta um feedback do cliente para facilitar o controle e melhoria do serviço.</li>
+  <li><strong>Autenticação e Controle de Acesso:</strong> Sistema de autenticação de usuários com diferentes níveis de permissão, sendo fundamental para garantir a segurança e integridade das operações. Ele possui métodos de login seguros, entre eles a autentificação em dois fatores, e um modelo de controle de acesso baseado em funções (RBAC), o que garante que apenas usuários autorizados acesse determinadas funções, sendo que cada ação desses usuários geram logs que garantem a rastreabilidade de suas ações dentro do sistema.</li>
+  <li><strong>Integração com APIs:</strong> Possibilidade de expandir as funcionalidades do sistema através da integração de APIs externas, como gateways de pagamento e serviços de comunicação para notificação do cliente. Essas integrações permitem uma maior adaptabilidade às necessidades do usuário e oferecem uma experiência mais completa do uso do sistema.</li>
 </ul>
 
 <h2>Seção B</h2>
