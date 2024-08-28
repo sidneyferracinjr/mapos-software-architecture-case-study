@@ -45,11 +45,11 @@ Devido à sua complexidade e abrangência, o Map-OS foi selecionado como objeto 
 
 <h2>Models</h2>
 
-![alt text](image-1.png)
+![alt text](docs/models.png)
 
 <h2>Controllers</h2>
 
-![alt text](image-2.png)
+![alt text](docs/controllers.png)
 
 <h3>Processos Principais</h3>
 <p>A análise dos processos principais do Map-OS foca nos fluxos de trabalho presentes no software, projetados para otimizar as operações comerciais e melhorar a experiência do usuário. São eles:</p>
