@@ -107,13 +107,23 @@ Diagrama de classes: Models
 - **Visualização e Exportação**: As vendas podem ser visualizadas e exportadas para diferentes formatos, o que facilita a integração com sistemas financeiros e contábeis.
 
 <div align="center">
-<img src="docs/visualizarVenda.jpg" alt="Diagrama Swimlane de Visualizar Venda"> <img src="docs/adicionarVenda.jpg" alt="Diagrama Swimlane de adicionar Venda"> 
-Diagrama de Raias: Visualizar Venda e Adicionar Venda
+<img src="docs/visualizarVenda.jpg" alt="Diagrama Swimlane de Visualizar Venda"> 
+Diagrama de Raias: Visualizar Venda
 </div>
 
 <div align="center">
-<img src="docs/editarVenda.jpg" alt="Diagrama Swimlane de editar Venda"> <img src="docs/imprimirVenda.jpg" alt="Diagrama Swimlane de imprimir Venda"> 
-Diagrama de Raias: Editar Venda e Imprimir Venda
+<img src="docs/adicionarVenda.jpg" alt="Diagrama Swimlane de adicionar Venda"> 
+Diagrama de Raias: Adicionar Venda
+</div>
+
+<div align="center">
+<img src="docs/editarVenda.jpg" alt="Diagrama Swimlane de editar Venda"> 
+Diagrama de Raias: Editar Venda
+</div>
+
+<div align="center">
+<img src="docs/imprimirVenda.jpg" alt="Diagrama Swimlane de imprimir Venda"> 
+Diagrama de Raias: Imprimir Venda
 </div>
 
 <div align="center">
@@ -171,7 +181,7 @@ Nesta proposta, cada módulo foi estruturado de acordo com o padrão MVC, onde c
 
 Outra mudança sugerida é a refatoração da classe Mine em outras classes menores, como visto na imagem acima. Essa refatoração foi sugerida, visto em mente, a complexidade e o tamanho da classe Mine, que assumia muitas responsabilidades, indo contra o o princípio da responsabilidade única (SRP), afim de segui-lo foi realizado a refatoração fazendo com que cada classe tenha uma responsabilidade específica dentro do sistema. 
 
-Esse tipo de refatoramento traz várias vantagens, entre as principais a realização de testes unitários, permitindo testar cada parte do sistema de forma independente tornando os testes mais eficazes, isolamento das mudanças, o que facilita a detecção de bugs e impedimento do surgimento futuros bugs durante a atualizaçõe de outras classes, e a facilidade para controle do versionamento, tornando o histórico de mudanças feitas mais claro e simplificando a revisão do código. Essas vantagens melhora a qualidade do código o tornando mais robusto e flexível a futuras mudanças ou adições nessas classes.
+Esse tipo de refatoração traz diversas vantagens, entre as quais se destacam a realização de testes unitários, permitindo que cada parte do sistema seja testada de forma independente tornando os testes mais eficazes, o isolamento das mudanças, facilitando a detecção de bugs e previnindo o surgimento de novos problemas durante a atualização de outras classes, e a modularização, o qual também simplifica o controle de versionamento tornando o histórico de alterações mais claro e facilitando a revisão do código. Essas vantagens, em conjunto, melhoram a qualidade do código, tornando-o mais robusto e flexível para futuras mudanças ou adições.
 
 #### Benefícios da Refatoração em MCV
 
