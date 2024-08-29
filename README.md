@@ -14,7 +14,7 @@ Apresentação Map-OS
 <h3>Estrutura da Documentação</h3>
 
 - [Introdução](#Introdução)
-- [Descrição do Sistema](#descricao-do-sistema)
+- [Descrição do Sistema](#descrição-do-sistema)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
 - [Processos Principais](#processos-principais)
 - [Proposta de Melhoria](#proposta-de-melhoria)
@@ -36,7 +36,7 @@ Apresentação Map-OS
     O objetivo é ser um sistema de assistência técnica, facilitando o gerenciamento da empresa do usuário, o possibilitando realizar sua gestão de ordens e serviços, a gestão de clientes e estoques, geração de relatório sobre as finanças, entre outras funcionalidades. 
     <br>Tendo sido desenvolvido em PHP, ele é um programa de código aberto disponível no GitHub e dividido em uma arquitetura de camadas, o que permite que cada componente do sistema comunique-se com outros de forma clara, faciilitando também sua manutenção. Sua utilização no mercado se da principalmente por pequenas e médias empresas que focam em serviços de atendimento ao cliente.</p>
 
-<h2>Seção A</h2>
+<h2>Seção A - Arquitetura</h2>
 
 <h3>Arquitetura do Sistema</h3>
 <p>A arquitetura do MapOS é organizada nas seguintes camadas: interface do usuário, lógica de negócio, banco de dados e infraestrutura.</p>
@@ -66,12 +66,21 @@ Diagrama de classes: Controllers
 <br>
   
   <li><strong>Banco de Dados:</strong> O banco de dados, também conhecindo como camada de persistência, é responsável por recuperar e gerenciar o armazenamento de dados do sistema, utilizando o banco de dados MySQL. Entre esses dados estão presentes informações de clientes, ordens de serviço e configurações do sistema. Devido a sensibilidade desses dados, tanto para os clientes como para a empresa, Também está presente nessa camada medidas de segurança como controle de acesso e criptografia dos dados.  As operações de CRUD (Create Read Update Delete) são realizadas nesta camada, que são otimizados no MySQL através do uso de índices.</li>
-
 <br>
+
+
 <div align="center">
-<img src="docs/models.png" alt="MapOS Logo"">
+<img src="docs/bd.jpeg" alt="MapOs BD"> 
+Diagrama SQL do Banco de Dados
+</div>
+
+
+<div align="center">
+<img src="docs/models.png" alt="MapOS Logo">
 Diagrama de classes: Models
 </div>
+
+
 <br>
   
   <li><strong>Infraestrutura:</strong> A infraestrutura do Map-OS é projetada visando oferecer um suporte robusto e flexível, possibilitando ser hospedado por servidores web famosos, como Apache e Nginx. Para simplificar a instalação e configuração inicial, foi feito o uso do <em>Composer</em>, que gerencia as dependências para PHP, tais como as bibliotecas e pacotes necessários para seu funcionamento, e opcionalmente <em>Docker</em>, que se utiliza de contêineres para encapsular o sistema, mantendo sua consistência independentemente das configurações do ambiente, ambos garantindo um ambiente de execução estável e replicável.</li>
@@ -87,10 +96,30 @@ A análise dos processos principais do sistema se concentra nos principais fluxo
 - **Atribuição e Execução**: Técnicos são atribuídos às ordens de serviço e seu status é atualizado ao longo da execução. O sistema oferece funcionalidades para adicionar notas, custos adicionais e monitorar o progresso da OS.
 - **Finalização e Feedback**: Após a conclusão do serviço, o cliente é notificado e solicitado a fornecer feedback, o que auxilia na melhoria contínua dos serviços oferecidos. O sistema também oferece a possibilidade de gerar relatórios detalhados sobre as OS finalizadas.
 
+<div align="center">
+<img src="docs/PedidoState.jpg" alt="Estados de Pedidos"> 
+Diagrama de classes: Models
+</div>
+
 #### Gestão de Vendas
 - **Geração de Vendas**: O sistema permite a geração de vendas a partir das ordens de serviço ou de outros processos comerciais. São realizadas validações para garantir que todos os requisitos de compra sejam atendidos antes de concluir a venda.
 - **Aplicação de Descontos e Termos**: Durante o processo de venda, o sistema gerencia a aplicação de descontos e a adição de termos contratuais específicos, garantindo transparência e conformidade com as políticas comerciais.
 - **Visualização e Exportação**: As vendas podem ser visualizadas e exportadas para diferentes formatos, o que facilita a integração com sistemas financeiros e contábeis.
+
+<div align="center">
+<img src="docs/visualizarVenda.jpg" alt="Diagrama Swimlane de Visualizar Venda"> <img src="docs/adicionarVenda.jpg" alt="Diagrama Swimlane de adicionar Venda"> 
+Diagrama de Raias: Visualizar Venda e Adicionar Venda
+</div>
+
+<div align="center">
+<img src="docs/editarVenda.jpg" alt="Diagrama Swimlane de editar Venda"> <img src="docs/imprimirVenda.jpg" alt="Diagrama Swimlane de imprimir Venda"> 
+Diagrama de Raias: Editar Venda e Imprimir Venda
+</div>
+
+<div align="center">
+<img src="docs/deletarVenda.jpg" alt="Diagrama Swimlane de deletar Venda"> 
+Diagrama de Raias: Deletar Venda
+</div>
 
 #### Autenticação e Controle de Acesso
 - **Login Seguro**: O sistema implementa mecanismos de autenticação, incluindo a verificação de dados bancários, para garantir que apenas usuários autorizados acessem as funções disponíveis.
@@ -107,10 +136,10 @@ A análise dos processos principais do sistema se concentra nos principais fluxo
 - **Relatórios Financeiros**: Relatórios detalhados podem ser gerados para monitorar o desempenho financeiro, permitindo uma visão clara e estratégica do fluxo de caixa e da saúde financeira da empresa.
 - **Integração Bancária**: Funcionalidades para integração com serviços bancários permitem uma gestão eficiente das transações financeiras diretamente pelo sistema.
 
-<h2>Seção B</h2>
+<h2>Seção B - Proposta de Melhoria</h2>
 
 <h3>Proposta de Melhoria</h3>
-<p>Esta seção propõe estratégias para aumentar a escalabilidade e melhorar a arquitetura do Map-OS:</p>
+<p>Esta seção é responsável por propõe uma estratégia que auxilie em um futuro aumento da escalabilidade e melhoria na arquitetura do Map-OS:</p>
 
 ### Implementação da Modularização com Padrão MVC
 
@@ -118,11 +147,11 @@ Recentemente, o sistema foi aprimorado por meio da aplicação de uma estratégi
 
 #### Mudança Sugerida
 
-Atualmente, o sistema utiliza uma estrutura menos modular, onde várias classes e funcionalidades estão interligadas de forma direta, resultando em uma maior complexidade ao tentar gerenciar o código, adicionar novas funcionalidades ou corrigir bugs. Para resolver essas questões, o sistema deve ser reorganizado em módulos específicos que se alinham ao padrão MVC. Estes módulos incluem:
+Atualmente, o sistema utiliza uma estrutura pouco modular, onde várias classes e funcionalidades estão interligadas de forma direta, resultando em classes grandes com alta complexidade gerando dificuldades por exemplo: Ao tentar gerenciar o código, adicionar novas funcionalidades ou até mesmo corrigir bugs. Afim de solucionar essas questões, nós sugerimos uma proposta da reoganização do sistema, focada em ajustar classes extensas em módulos específicos para que se alinhem ao padrão MVC e SRP. Esta reorganização inclue os seguintes módulos:
 
 <br>
 <div align="center">
-<img src="https://github.com/user-attachments/assets/f9790a27-6942-424c-92de-3097f5cb36a6" alt="MapOS Logo"">
+<img src="docs/controllers.drawio.png" alt="MapOS Logo"">
 Modularização do sistema
 </div>
 <br>
@@ -133,29 +162,32 @@ Modularização do sistema
 - **Módulo Usuários**: Trata da autenticação, controle de acesso e gestão de usuários.
 - **Módulo Tools**: Fornece ferramentas e funcionalidades auxiliares que são utilizadas em diversos pontos do sistema.
 
-Cada módulo é estruturado de acordo com o padrão MVC, o que significa que as responsabilidades de cada componente (Model, View, Controller) são claramente definidas:
+Nesta proposta, cada módulo foi estruturado de acordo com o padrão MVC, onde cada componente recebeu sua devida responsabilidade de acordo com, os metodos Model, View e Controller, seguindo as seguintes lógicas e responsabilidades definidas:
 
 - **Model**: Lida com a lógica de negócios e a manipulação dos dados.
 - **View**: Responsável pela apresentação dos dados ao usuário, seja através de interfaces gráficas ou outros meios.
 - **Controller**: Atua como intermediário entre Model e View, processando entradas do usuário, atualizando os Models e, em seguida, fornecendo os dados atualizados à View.
 
-#### Benefícios da Mudança
 
-**Manutenção Facilitada**: Com a modularização, cada parte do sistema será organizado em blocos independentes, o que torna a manutenção muito mais simples. Atualizações ou correções podem ser feitas em um módulo específico sem afetar diretamente os outros.
+Outra mudança sugerida é a refatoração da classe Mine em outras classes menores, como visto na imagem acima. Essa refatoração foi sugerida, visto em mente, a complexidade e o tamanho da classe Mine, que assumia muitas responsabilidades, indo contra o o princípio da responsabilidade única (SRP), afim de segui-lo foi realizado a refatoração fazendo com que cada classe tenha uma responsabilidade específica dentro do sistema. 
 
-**Escalabilidade**: A estrutura modular permite que novos módulos sejam adicionados ou os existentes sejam expandidos sem comprometer a estabilidade do sistema. Isso facilita o crescimento do sistema conforme as necessidades do negócio evoluem.
+Esse tipo de refatoramento traz várias vantagens, entre as principais a realização de testes unitários, permitindo testar cada parte do sistema de forma independente tornando os testes mais eficazes, isolamento das mudanças, o que facilita a detecção de bugs e impedimento do surgimento futuros bugs durante a atualizaçõe de outras classes, e a facilidade para controle do versionamento, tornando o histórico de mudanças feitas mais claro e simplificando a revisão do código. Essas vantagens melhora a qualidade do código o tornando mais robusto e flexível a futuras mudanças ou adições nessas classes.
 
-**Reutilização de Código**: Componentes dentro de um módulo ou entre diferentes módulos podem ser reutilizados, reduzindo a duplicação de código e aumentando a eficiência do desenvolvimento.
+#### Benefícios da Refatoração em MCV
 
-**Clareza e Organização**: Com o código organizado em módulos específicos, a clareza do sistema como um todo é significativamente melhorada. Desenvolvedores podem facilmente entender onde cada funcionalidade está localizada e como os diferentes componentes interagem.
+**Manutenção Facilitada**: Com a modularização organizada em blocos independentes, cada parte do sistema é tratada de forma isolada, o que torna a manutenção muito mais simples e eficaz. Esse modelo permite que futuras atualizações ou correções sejam realizadas em módulos específicos, sem o risco de impactar negativamente outros módulos independentes.
 
-**Alinhamento com Padrões de Mercado**: A adoção do padrão MVC em conjunto com a modularização alinha o sistema com práticas recomendadas de desenvolvimento de software, facilitando a integração com outras ferramentas, frameworks e a adoção de novas tecnologias.
+**Escalabilidade**: A estrutura modular auxilia a escabilidade do sistema pois permite que novos módulos sejam adicionados ou até mesmo que módulos ja existentes sejam expandidos de forma eficiente. Essa flexibilidade reduz o impacto de comprometer a estabilidade do sistema, facilitando o seu crescimento conforme as necessidades do sistema aumentam.
 
-**Testabilidade**: A modularização e o uso do padrão MVC facilitam a criação de testes unitários e de integração, permitindo que cada módulo e suas partes sejam testados isoladamente, garantindo maior confiabilidade do sistema.
+**Clareza e Organização**: Com a adoção dessa organização, a clareza do código é aprimorada o que melhora a compreensão do sistema como um todo. Algo de extrema importância para projetos de código aberto, possibilitando que os desenvolvedores entendam facilmente a localização de cada funcionalidade e como os diferentes componentes interagem entre si.
+
+**Alinhamento com Padrões de Mercado**: A adoção do padrão MVC, em conjunto com a modularização, alinha o sistema com práticas recomendadas de desenvolvimento de software, facilitando a integração com outras ferramentas e frameworks, além da adoção de novas tecnologias.
+
+**Testabilidade**: A modularização e o uso do padrão MVC facilitam a criação de testes unitários e de integração. Isso permite que cada módulo seja testado isoladamente, garantindo maior confiabilidade do sistema e facilitando a identificação de bugs.
 
 ## Conclusão
 
-A aplicação de modularização, alinhada ao padrão MVC, resulta em um sistema mais robusto, organizado e fácil de manter. Essas mudanças não só melhoram a eficiência do desenvolvimento atual, como também preparam o sistema para suportar futuras expansões e integrações de forma mais ágil e menos propensa a erros.
+A aplicação de modularização, alinhada ao padrão MVC, juntamente com a refatoração da classe Mine, resultará em um sistema mais robusto, organizado e de fácil manutenção. Essas mudanças não apenas aprimoram a eficiência do desenvolvimento atual e de futuras evoluções, mas também preparam o sistema para suportar expansões, correções e integrações futuras de maneira mais ágil e com menor propensão a erros. Além disso, como se trata de um projeto aberto, tais implementações são de suma importância, pois facilitarão o entendimento do código, permitindo que mais colaborações possam surgir.
 
 
 <h4>Referências</h4>
