@@ -70,7 +70,7 @@ Diagrama de classes: Controllers
 
 
 <div align="center">
-<img src="docs/bd.jpeg" alt="MapOs BD"> 
+<img src="docs/BD.jpeg" alt="MapOs BD"> 
 Diagrama SQL do Banco de Dados
 </div>
 
